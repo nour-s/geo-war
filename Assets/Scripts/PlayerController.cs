@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -7,6 +9,9 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletPrefab;
 
     public Transform firePoint;
+
+    private bool isFiring = false;
+    public float fireRate = 0.1f;
 
     // Update is called once per frame
     void Update()
@@ -35,14 +40,23 @@ public class PlayerController : MonoBehaviour
         // Check if the player is firing
         if (Input.GetMouseButtonDown(0))
         {
-            // Get the mouse position
+            isFiring = true;
+            StartCoroutine(FireBullets());
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            isFiring = false;
+        }
 
+    }
+
+    private IEnumerator FireBullets()
+    {
+        while (isFiring)
+        {
             // Create a bullet
-            var bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-
-            // Shoot the bullet
-            bullet.GetComponent<Bullet>().Shoot(direction);
-            Debug.DrawLine(transform.position, direction.normalized, Color.red, 1f);
+            var bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation * Quaternion.Euler(0, 0, -90));
+            yield return new WaitForSeconds(fireRate);
         }
     }
 }
