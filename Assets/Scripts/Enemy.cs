@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 4f;
     public float rotationSpeed = 200f;
     public float attackRange = 2f;
     public float attackCooldown = 1f;
     public GameObject bulletPrefab;
     public Transform firePoint;
-    public float fireRate = 0.5f;
+    public float fireRate = 0.7f;
 
     private Transform playerTransform;
     private bool canAttack = true;
