@@ -10,20 +10,19 @@ public class PlayerController : MonoBehaviour
     public Transform firePoint;
 
     private bool isFiring = false;
+
     public float fireRate = 0.1f;
+
     public GameObject enemyPrefab;
+
     void Start()
     {
-        // Start spawning enemies
-        StartCoroutine(SpawnEnemies());
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        // var x = Input.GetAxis("Horizontal");
-
-
         Vector3 playerPos = Camera.main.WorldToScreenPoint(transform.position);
         Vector3 distanceToMouse = Input.mousePosition - playerPos;
 
@@ -53,6 +52,7 @@ public class PlayerController : MonoBehaviour
             isFiring = false;
         }
     }
+
     private IEnumerator FireBullets()
     {
         while (isFiring)
@@ -62,27 +62,4 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(fireRate);
         }
     }
-
-    private void SpawnEnemy()
-    {
-        // Calculate a random position within the game area
-        Vector3 spawnPosition = new Vector3(Random.Range(-10f, 10f), Random.Range(-10f, 10f), 0f);
-
-        // Instantiate the enemy prefab at the spawn position
-        Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-    }
-
-
-    private IEnumerator SpawnEnemies()
-    {
-        while (true)
-        {
-            // Wait for a certain amount of time
-            yield return new WaitForSeconds(Random.Range(1f, 3f));
-
-            // Spawn an enemy
-            SpawnEnemy();
-        }
-    }
-
 }
