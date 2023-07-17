@@ -22,24 +22,24 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // var x = Input.GetAxis("Horizontal");
-        var y = Input.GetAxisRaw("Vertical") > 0 ? 1 : 0;
+
 
         Vector3 playerPos = Camera.main.WorldToScreenPoint(transform.position);
-        Vector3 direction = Input.mousePosition - playerPos;
+        Vector3 distanceToMouse = Input.mousePosition - playerPos;
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(distanceToMouse.y, distanceToMouse.x) * Mathf.Rad2Deg;
         var rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         // Rotate player towards the mouse
         transform.rotation = rotation;
         firePoint.rotation = rotation;
 
-        if (y != 0)
+        var direction = Input.GetAxisRaw("Vertical");
+        if (direction != 0)
         {
-
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = 0;
-            transform.position = Vector3.MoveTowards(transform.position, mousePosition, Time.deltaTime * moveSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, mousePosition, Time.deltaTime * moveSpeed * direction);
         }
 
         // Check if the player is firing
