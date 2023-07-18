@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,16 +19,17 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+
+        if (playerTransform == null)
+        {
+            throw new Exception("Player not found");
+        }
+
         StartCoroutine(AttackPlayer());
     }
 
     private void Update()
     {
-        if (playerTransform == null)
-        {
-            return;
-        }
-
         // Move towards the player
         transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, moveSpeed * Time.deltaTime);
 
@@ -44,11 +46,13 @@ public class Enemy : MonoBehaviour
         {
             yield return new WaitForSeconds(attackCooldown);
 
-            if (playerTransform != null && Vector3.Distance(transform.position, playerTransform.position) <= attackRange && canAttack)
+            var distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+            if (distanceToPlayer <= attackRange && canAttack)
             {
                 // Shoot a bullet
                 var bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
                 bullet.GetComponent<Bullet>().Shooter = tag;
+
                 // Cooldown before the next attack
                 StartCoroutine(ResetAttackCooldown());
             }
