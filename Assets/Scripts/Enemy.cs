@@ -47,8 +47,8 @@ public class Enemy : MonoBehaviour
             if (playerTransform != null && Vector3.Distance(transform.position, playerTransform.position) <= attackRange && canAttack)
             {
                 // Shoot a bullet
-                Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-
+                var bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                bullet.GetComponent<Bullet>().Shooter = tag;
                 // Cooldown before the next attack
                 StartCoroutine(ResetAttackCooldown());
             }

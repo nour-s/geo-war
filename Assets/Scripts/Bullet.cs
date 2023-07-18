@@ -4,8 +4,12 @@ public class Bullet : MonoBehaviour
 {
     // A bullet is an object that move fast forward the moment it gets initialized
     public float speed = 10f;
+
     public float lifeTime = 1f;
+
     public Vector3 direction = Vector3.zero;
+
+    public string Shooter { get; set; }
 
 
     // Start is called before the first frame update
@@ -25,11 +29,12 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Check if the bullet hits an enemy
-        if (collision.CompareTag("Enemy"))
+        if (Shooter == collision.tag)
         {
-            // Destroy the enemy
-            Destroy(collision.gameObject);
+            return;
         }
+
+        // Destroy the enemy
+        Destroy(collision.gameObject);
     }
 }

@@ -58,7 +58,8 @@ public class PlayerController : MonoBehaviour
         while (isFiring)
         {
             // Create a bullet
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation * Quaternion.Euler(0, 0, -90));
+            var bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation * Quaternion.Euler(0, 0, -90));
+            bullet.GetComponent<Bullet>().Shooter = tag;
             yield return new WaitForSeconds(fireRate);
         }
     }
