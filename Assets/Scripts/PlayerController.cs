@@ -33,13 +33,10 @@ public class PlayerController : MonoBehaviour
         transform.rotation = rotation;
         firePoint.rotation = rotation;
 
-        var direction = Input.GetAxisRaw("Vertical");
-        if (direction != 0)
-        {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0;
-            transform.position = Vector3.MoveTowards(transform.position, mousePosition, Time.deltaTime * moveSpeed * direction);
-        }
+        var direction = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0).normalized;
+
+        // Move in the direction of keyboard arrow
+        transform.position += Time.deltaTime * moveSpeed * direction;
 
         // Check if the player is firing
         if (Input.GetMouseButtonDown(0))
