@@ -83,11 +83,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   rotationSpeed: 200
-  attackRange: 2
+  attackRange: 20
   attackCooldown: 1
   bulletPrefab: {fileID: 6172803803630750190, guid: 3c736dceabdbe034a9864955f77b9312, type: 3}
   firePoint: {fileID: 300696564459308698}
-  fireRate: 0.5
+  fireRate: 3
 --- !u!61 &6316301469234438833
 BoxCollider2D:
   m_ObjectHideFlags: 0
