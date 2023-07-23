@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     public float moveSpeed = 4f;
     public float rotationSpeed = 200f;
-    public float attackRange = 2f;
+    public float attackRange = 10f;
     public float attackCooldown = 1f;
     public GameObject bulletPrefab;
     public Transform firePoint;

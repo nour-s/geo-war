@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(1f, 3f));
 
             // Calculate a random position within the game area
-            Vector3 spawnPosition = new Vector3(Random.Range(-10f, 10f), Random.Range(-10f, 10f), 0f);
+            var spawnPosition = new Vector3(Random.Range(-10f, 10f), Random.Range(-10f, 10f), 0f);
 
             // Instantiate the enemy prefab at the spawn position
             Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
