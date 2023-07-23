@@ -29,6 +29,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Bullet collided with " + collision.tag);
         if (Shooter == collision.tag)
         {
             return;
@@ -36,5 +37,6 @@ public class Bullet : MonoBehaviour
 
         // Destroy the enemy
         Destroy(collision.gameObject);
+        Destroy(gameObject);
     }
 }
