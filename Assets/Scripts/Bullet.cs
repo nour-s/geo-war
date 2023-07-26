@@ -11,10 +11,14 @@ public class Bullet : MonoBehaviour
 
     public string Shooter { get; set; }
 
+    public Color Color = Color.red;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Set the color of the bullet
+        GetComponent<SpriteRenderer>().color = Color;
+
         // Destroy the bullet after a certain amount of time
         Destroy(gameObject, lifeTime);
     }

@@ -50,8 +50,10 @@ public class Enemy : MonoBehaviour
             if (distanceToPlayer <= attackRange && canAttack)
             {
                 // Shoot a bullet
-                var bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-                bullet.GetComponent<Bullet>().Shooter = tag;
+                var bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                var bullet = bulletGO.GetComponent<Bullet>();
+                bullet.Shooter = tag;
+                bullet.Color = Color.green;
 
                 // Cooldown before the next attack
                 StartCoroutine(ResetAttackCooldown());
