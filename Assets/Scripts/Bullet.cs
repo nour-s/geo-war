@@ -33,7 +33,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (Shooter == collision.tag)
+        if (Shooter == collision.tag || collision.tag == tag)
         {
             return;
         }
