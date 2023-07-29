@@ -1,22 +1,37 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Hitable : MonoBehaviour
 {
-    public float health = 100f;
+    public float maxHealth = 100f;
+    public float currentHealth = 100f;
 
     public float damage = 20f;
 
     public SpriteRenderer hitImpactSprite;
 
+    public Slider healthBarSlider;
+
+    public void Start()
+    {
+        currentHealth = maxHealth;
+    }
+
     public void TakeDamage()
     {
         FlashEffect();
-        health -= damage;
+        currentHealth -= damage;
 
         StartCoroutine(FlashEffect());
 
-        if (health <= 0)
+        if (healthBarSlider)
+        {
+            healthBarSlider.value = currentHealth / maxHealth;
+        }
+
+        if (currentHealth <= 0)
         {
             // Destroy the enemy
             Destroy(gameObject);

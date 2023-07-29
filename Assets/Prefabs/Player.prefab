@@ -444,9 +444,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 45
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -813,9 +813,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e2e48f04279014f9d1ec95d783338a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 500
+  maxHealth: 500
+  currentHealth: 500
   damage: 20
   hitImpactSprite: {fileID: 203438068716790525}
+  healthBarSlider: {fileID: 5246384412894935435}
 --- !u!58 &885426097701833948
 CircleCollider2D:
   m_ObjectHideFlags: 0
