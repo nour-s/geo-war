@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject enemyPrefab;
 
+    public GameObject character;
+
     void Start()
     {
 
@@ -30,7 +32,7 @@ public class PlayerController : MonoBehaviour
         var rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         // Rotate player towards the mouse
-        transform.rotation = rotation;
+        character.transform.rotation = rotation;
         firePoint.rotation = rotation;
 
         var direction = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0).normalized;
