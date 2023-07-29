@@ -815,7 +815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 500
   damage: 20
-  spriteRenderer: {fileID: 203438068716790525}
+  hitImpactSprite: {fileID: 203438068716790525}
 --- !u!58 &885426097701833948
 CircleCollider2D:
   m_ObjectHideFlags: 0

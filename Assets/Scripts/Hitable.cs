@@ -7,7 +7,7 @@ public class Hitable : MonoBehaviour
 
     public float damage = 20f;
 
-    public SpriteRenderer spriteRenderer;
+    public SpriteRenderer hitImpactSprite;
 
     public void TakeDamage()
     {
@@ -25,8 +25,8 @@ public class Hitable : MonoBehaviour
 
     private IEnumerator FlashEffect()
     {
-        spriteRenderer.enabled = true;
+        hitImpactSprite.enabled = true;
         yield return new WaitForSeconds(0.01f);
-        spriteRenderer.enabled = false;
+        hitImpactSprite.enabled = false;
     }
 }
