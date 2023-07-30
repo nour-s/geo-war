@@ -60,6 +60,6 @@ public class GameManager : MonoBehaviour
     public void EnemyDestroyed()
     {
         enemiesKilled++;
-        scoreText.text = $"Score: {enemiesKilled}";
+        scoreText.text = $"Killed: {enemiesKilled}";
     }
 }
