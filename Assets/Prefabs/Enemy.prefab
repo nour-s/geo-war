@@ -145,9 +145,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e2e48f04279014f9d1ec95d783338a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  maxHealth: 100
+  currentHealth: 100
   damage: 20
-  spriteRenderer: {fileID: 8603572336765266412}
+  hitImpactSprite: {fileID: 8603572336765266412}
+  healthBarSlider: {fileID: 0}
 --- !u!1 &6056682832228905124
 GameObject:
   m_ObjectHideFlags: 0
