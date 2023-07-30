@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,13 +15,24 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
 
+    public GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
         // Prevent this game object from being destroyed when loading a new scene
         DontDestroyOnLoad(gameObject);
         StartSpawning();
-        DontDestroyOnLoad(gameObject);
+
+        // Find the player object
+        player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<Destroyable>().OnDestroyed += PlayerDestroyed;
+        Assert.IsNotNull(player);
+    }
+
+    private void PlayerDestroyed()
+    {
+        StopSpawning();
     }
 
     public void StartSpawning()
