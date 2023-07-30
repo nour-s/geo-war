@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
 
             // Instantiate the enemy prefab at the spawn position
             var enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-            enemy.GetComponent<Enemy>().OnDestroyed += EnemyDestroyed;
+            enemy.GetComponent<Destroyable>().OnDestroyed += EnemyDestroyed;
         }
     }
 

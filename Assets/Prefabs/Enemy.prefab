@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: 6316301469234438833}
   - component: {fileID: 2860103250583489678}
   - component: {fileID: 3958702401628999619}
+  - component: {fileID: -2249307217007182617}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -260,6 +261,18 @@ MonoBehaviour:
   damage: 20
   hitImpactSprite: {fileID: 8603572336765266412}
   healthBarSlider: {fileID: 3528568409083897469}
+--- !u!114 &-2249307217007182617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3209677123977679684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cfdc3e88b755bd4f9fe613e31af67eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5019557289951212079
 GameObject:
   m_ObjectHideFlags: 0

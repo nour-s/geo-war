@@ -760,6 +760,7 @@ GameObject:
   - component: {fileID: 833593926268476396}
   - component: {fileID: 7400756829271900941}
   - component: {fileID: 885426097701833948}
+  - component: {fileID: 7475529662825114699}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -782,7 +783,7 @@ Transform:
   - {fileID: 3375146478789917294}
   - {fileID: 138119604285971281}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &833593926268476396
 MonoBehaviour:
@@ -853,3 +854,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.0009893775}
   serializedVersion: 2
   m_Radius: 0.2576
+--- !u!114 &7475529662825114699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8298993860533496411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cfdc3e88b755bd4f9fe613e31af67eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
