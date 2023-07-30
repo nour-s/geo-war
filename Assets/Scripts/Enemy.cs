@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
     private Transform playerTransform;
     private bool canAttack = true;
 
+    public Action OnDestroyed { get; internal set; }
+
     private void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
@@ -67,5 +69,10 @@ public class Enemy : MonoBehaviour
         canAttack = false;
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
+    }
+
+    private void OnDestroy()
+    {
+        OnDestroyed?.Invoke();
     }
 }
