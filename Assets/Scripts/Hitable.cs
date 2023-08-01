@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class Hitable : MonoBehaviour
     public SpriteRenderer hitImpactSprite;
 
     public Slider healthBarSlider;
+
+    public Action<GameObject> OnHealthDepleted { get; internal set; }
 
     public void Start()
     {
@@ -33,8 +36,8 @@ public class Hitable : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            // Destroy the enemy
-            Destroy(gameObject);
+            // Call event HealthDepleted
+            OnHealthDepleted?.Invoke(gameObject);
         }
     }
 

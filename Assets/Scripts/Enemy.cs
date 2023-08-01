@@ -68,4 +68,9 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
     }
+
+    void OnDisable()
+    {
+        StopAllCoroutines();
+    }
 }

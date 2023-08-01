@@ -26,13 +26,29 @@ public class GameManager : MonoBehaviour
 
         // Find the player object
         player = GameObject.FindGameObjectWithTag("Player");
-        player.GetComponent<Destroyable>().OnDestroyed += PlayerDestroyed;
+        player.GetComponent<Hitable>().OnHealthDepleted += PlayerDestroyed;
         Assert.IsNotNull(player);
     }
 
-    private void PlayerDestroyed()
+    private void PlayerDestroyed(GameObject playerObj)
+    {
+
+        // Stop the player from moving
+        player.GetComponent<PlayerController>().enabled = false;
+
+        StopGame();
+    }
+
+    private void StopGame()
     {
         StopSpawning();
+
+        // Show the game over screen
+        var enemies = FindObjectsOfType<Enemy>();
+        foreach (var enemy in enemies)
+        {
+            Destroy(enemy.gameObject);
+        }
     }
 
     public void StartSpawning()
@@ -55,22 +71,23 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator SpawnEnemies()
     {
-        while (true)
+        while (isSpawning)
         {
-            // Wait for a certain amount of time
-            yield return new WaitForSeconds(Random.Range(1f, 3f));
-
             // Calculate a random position within the game area
             var spawnPosition = new Vector3(Random.Range(-10f, 10f), Random.Range(-10f, 10f), 0f);
 
             // Instantiate the enemy prefab at the spawn position
             var enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-            enemy.GetComponent<Destroyable>().OnDestroyed += EnemyDestroyed;
+            enemy.GetComponent<Hitable>().OnHealthDepleted += EnemyHealthDepleted;
+
+            // Wait for a certain amount of time
+            yield return new WaitForSeconds(Random.Range(1f, 3f));
         }
     }
 
-    public void EnemyDestroyed()
+    public void EnemyHealthDepleted(GameObject enemyObj)
     {
+        Destroy(enemyObj);
         enemiesKilled++;
         scoreText.text = $"Killed: {enemiesKilled}";
     }
