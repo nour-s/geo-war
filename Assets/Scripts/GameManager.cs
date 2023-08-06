@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -17,11 +16,28 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
 
+    public GameObject gameOverScreen;
+
+    //Static instance of GameManager which allows it to be accessed by any other script.
+    public static GameManager instance = null;
+
+    //Awake is always called before any Start functions
+    void Awake()
+    {
+        if (instance && instance != this)
+        {
+            Destroy(instance.gameObject);
+        }
+
+        instance = this;
+        //Sets this to not be destroyed when reloading scene
+        DontDestroyOnLoad(gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         // Prevent this game object from being destroyed when loading a new scene
-        DontDestroyOnLoad(gameObject);
         StartSpawning();
 
         // Find the player object
@@ -49,6 +65,10 @@ public class GameManager : MonoBehaviour
         {
             Destroy(enemy.gameObject);
         }
+
+        // Show the game over screen
+        gameOverScreen.SetActive(true);
+
     }
 
     public void StartSpawning()
@@ -90,5 +110,12 @@ public class GameManager : MonoBehaviour
         Destroy(enemyObj);
         enemiesKilled++;
         scoreText.text = $"Killed: {enemiesKilled}";
+    }
+
+    public void RestartButtonClick()
+    {
+        StartSpawning();
+        // Reload the scene
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }
