@@ -17,9 +17,11 @@ public class PlayerController : MonoBehaviour
 
     public GameObject character;
 
+    private AudioSource audioSource;
+
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>() ?? throw new MissingComponentException("Missing audio source component");
     }
 
     // Update is called once per frame
@@ -59,6 +61,7 @@ public class PlayerController : MonoBehaviour
             // Create a bullet
             var bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation * Quaternion.Euler(0, 0, -90));
             bullet.GetComponent<Bullet>().Shooter = tag;
+            audioSource.Play();
             yield return new WaitForSeconds(fireRate);
         }
     }
