@@ -5,8 +5,6 @@ public class Bullet : MonoBehaviour
     // A bullet is an object that move fast forward the moment it gets initialized
     public float speed = 10f;
 
-    public float lifeTime = 1f;
-
     public Vector3 direction = Vector3.zero;
 
     public string Shooter { get; set; }
@@ -18,9 +16,6 @@ public class Bullet : MonoBehaviour
     {
         // Set the color of the bullet
         GetComponent<SpriteRenderer>().color = Color;
-
-        // Destroy the bullet after a certain amount of time
-        Destroy(gameObject, lifeTime);
     }
 
 
