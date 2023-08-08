@@ -820,6 +820,7 @@ MonoBehaviour:
   damage: 20
   hitImpactSprite: {fileID: 203438068716790525}
   healthBarSlider: {fileID: 5246384412894935435}
+  deathPrefab: {fileID: 0}
 --- !u!58 &885426097701833948
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -878,8 +879,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 899f8733a34ed064eb4fda1cc27afc3f, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.261
   m_Pitch: 1
   Loop: 0
   Mute: 0

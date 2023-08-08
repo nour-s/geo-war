@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
     private Transform playerTransform;
     private bool canAttack = true;
 
+    public AudioSource shootSound;
+
     private void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
@@ -55,6 +57,7 @@ public class Enemy : MonoBehaviour
                 var bullet = bulletGO.GetComponent<Bullet>();
                 bullet.Shooter = tag;
                 bullet.Color = Color.green;
+                shootSound.Play();
 
                 // Cooldown before the next attack
                 StartCoroutine(ResetAttackCooldown());
@@ -65,7 +68,8 @@ public class Enemy : MonoBehaviour
     private IEnumerator ResetAttackCooldown()
     {
         canAttack = false;
-        yield return new WaitForSeconds(attackCooldown);
+        var randomCooldown = UnityEngine.Random.Range(0.1f, attackCooldown);
+        yield return new WaitForSeconds(randomCooldown);
         canAttack = true;
     }
 

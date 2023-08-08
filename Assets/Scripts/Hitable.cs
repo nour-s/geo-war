@@ -17,6 +17,8 @@ public class Hitable : MonoBehaviour
 
     public Action<GameObject> OnHealthDepleted { get; internal set; }
 
+    public GameObject deathPrefab;
+
     public void Start()
     {
         currentHealth = maxHealth;
@@ -36,9 +38,19 @@ public class Hitable : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            // Call event HealthDepleted
-            OnHealthDepleted?.Invoke(gameObject);
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        if (deathPrefab)
+        {
+            Instantiate(deathPrefab, transform.position, Quaternion.identity);
+        }
+
+        // Call event HealthDepleted
+        OnHealthDepleted?.Invoke(gameObject);
     }
 
     private IEnumerator FlashEffect()
