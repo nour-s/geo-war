@@ -33,8 +33,14 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        // Calculate the direction from the enemy to the player
+        Vector3 directionToPlayer = playerTransform.position - transform.position;
+
+        // Calculate the target position that maintains the desired distance
+        Vector3 targetPosition = playerTransform.position - directionToPlayer.normalized * 3;
+
         // Move towards the player
-        transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, moveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
         // Rotate towards the player
         Vector3 direction = playerTransform.position - transform.position;

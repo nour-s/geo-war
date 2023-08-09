@@ -246,6 +246,9 @@ MonoBehaviour:
   fireRate: 10
   character: {fileID: 305131053933447658}
   shootSound: {fileID: 935806762521215159}
+  desiredChaseDistance: 2.5
+  bufferDistance: 0.5
+  retreatDamping: 30
 --- !u!114 &3958702401628999619
 MonoBehaviour:
   m_ObjectHideFlags: 0
