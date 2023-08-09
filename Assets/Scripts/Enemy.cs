@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float moveSpeed = 4f;
+    public float moveSpeed = 40f;
     public float rotationSpeed = 200f;
     public float attackRange = 20f;
     public float attackCooldown = 1f;
@@ -19,6 +19,8 @@ public class Enemy : MonoBehaviour
 
     public AudioSource shootSound;
 
+    private Vector3 velocity = Vector3.zero;
+    public float smoothTime = 0.5f;
     private void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
@@ -39,8 +41,9 @@ public class Enemy : MonoBehaviour
         // Calculate the target position that maintains the desired distance
         Vector3 targetPosition = playerTransform.position - directionToPlayer.normalized * 3;
 
+
         // Move towards the player
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
 
         // Rotate towards the player
         Vector3 direction = playerTransform.position - transform.position;
