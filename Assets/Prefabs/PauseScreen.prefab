@@ -420,12 +420,12 @@ GameObject:
   - component: {fileID: 9095026183576190212}
   - component: {fileID: 9324480775534638}
   m_Layer: 5
-  m_Name: PauseMenu
+  m_Name: PauseScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5672012887743492318
 RectTransform:
   m_ObjectHideFlags: 0
@@ -442,7 +442,7 @@ RectTransform:
   - {fileID: 8710448377166634729}
   - {fileID: 3464443793987241420}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
