@@ -6,6 +6,7 @@ using UnityEngine.Assertions;
 public class GameManager : MonoBehaviour
 {
     public GameObject enemyPrefab;
+
     public float spawnInterval = 2f;
 
     private bool isSpawning = false;
@@ -18,8 +19,12 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverScreen;
 
-    //Static instance of GameManager which allows it to be accessed by any other script.
+    public GameObject pauseMenuUI;
+
     public static GameManager instance = null;
+
+    private bool isPaused;
+
 
     //Awake is always called before any Start functions
     void Awake()
@@ -32,6 +37,43 @@ public class GameManager : MonoBehaviour
         instance = this;
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
+    }
+
+    public void PauseGame()
+    {
+        isPaused = true;
+        Time.timeScale = 0; // Pause the time, which pauses the game
+        pauseMenuUI.SetActive(true); // Show the pause menu UI
+    }
+
+    public void ResumeGame()
+    {
+        isPaused = false;
+        Time.timeScale = 1; // Resume normal time flow
+        pauseMenuUI.SetActive(false); // Hide the pause menu UI
+    }
+
+    public void RestartButtonClick()
+    {
+        // Reload the scene
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        ResumeGame();
+        StartSpawning();
     }
 
     // Start is called before the first frame update
@@ -112,10 +154,4 @@ public class GameManager : MonoBehaviour
         scoreText.text = $"Killed: {enemiesKilled}";
     }
 
-    public void RestartButtonClick()
-    {
-        StartSpawning();
-        // Reload the scene
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
-    }
 }
