@@ -49,3 +49,4 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   player: {fileID: 0}
   gameOverScreen: {fileID: 5460706463799947281, guid: 1293b10d6d4e64d41b3f4b498d715920, type: 3}
+  pauseMenuUI: {fileID: 5460706463799947281, guid: a702fa45605fdb94380416478f704190, type: 3}
