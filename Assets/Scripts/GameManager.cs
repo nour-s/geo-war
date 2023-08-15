@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     private bool isPaused;
 
+    public bool playerNeverDies;
 
     //Awake is always called before any Start functions
     void Awake()
@@ -91,6 +92,10 @@ public class GameManager : MonoBehaviour
     private void PlayerDestroyed(GameObject playerObj)
     {
 
+        if (playerNeverDies)
+        {
+            return;
+        }
         // Stop the player from moving
         player.GetComponent<PlayerController>().enabled = false;
 
