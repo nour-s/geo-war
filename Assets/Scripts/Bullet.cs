@@ -5,8 +5,6 @@ public class Bullet : MonoBehaviour
     // A bullet is an object that move fast forward the moment it gets initialized
     public float speed = 10f;
 
-    public Vector3 direction = Vector3.zero;
-
     public string Shooter { get; set; }
 
     public Color Color = Color.red;

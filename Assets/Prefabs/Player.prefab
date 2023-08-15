@@ -802,6 +802,7 @@ MonoBehaviour:
   firePoint: {fileID: 2251553071324967380}
   fireRate: 0.1
   enemyPrefab: {fileID: 3209677123977679684, guid: cd011732194589f4b9359e428a95997c, type: 3}
+  missilePrefab: {fileID: 8724328856364715753, guid: 2f310d11add7af045b4e42ad6f2bfd0e, type: 3}
   character: {fileID: 7013606885501295201}
 --- !u!114 &7400756829271900941
 MonoBehaviour:

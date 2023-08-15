@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject enemyPrefab;
 
+    public GameObject missilePrefab;
+
     public GameObject character;
 
     private AudioSource audioSource;
@@ -52,6 +54,13 @@ public class PlayerController : MonoBehaviour
         {
             isFiring = false;
         }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            // Shoot a missile
+            var missile = Instantiate(missilePrefab, firePoint.position, firePoint.rotation);
+        }
+
     }
 
     private IEnumerator FireBullets()

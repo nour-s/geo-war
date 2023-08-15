@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     public AudioSource shootSound;
 
     private Vector3 velocity = Vector3.zero;
+
     public float smoothTime = 0.5f;
     private void Start()
     {
@@ -40,7 +41,6 @@ public class Enemy : MonoBehaviour
 
         // Calculate the target position that maintains the desired distance
         Vector3 targetPosition = playerTransform.position - directionToPlayer.normalized * 3;
-
 
         // Move towards the player
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
