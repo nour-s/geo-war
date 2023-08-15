@@ -13,6 +13,10 @@ public class Missile : MonoBehaviour
 
     public GameObject bulletPrefab;
 
+    public GameObject missilePrefab;
+
+    public bool shootMissile;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,11 +40,26 @@ public class Missile : MonoBehaviour
 
     private void Explode()
     {
-        // Shoot eight bullets in each direction and then destry the missile
+        var prefab = shootMissile ? missilePrefab : bulletPrefab;
+
+        // At first shoot 8 missiles, and then each of them will shoot eight bullets in each direction and then destry the missile
         for (int i = 0; i < 8; i++)
         {
-            var bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-            bullet.transform.Rotate(0, 0, 45 * i);
+            var instance = Instantiate(prefab, transform.position, Quaternion.identity);
+
+            if (shootMissile)
+            {
+                var missile = instance.GetComponent<Missile>();
+                // Debug.Log("Shoot missile value is " + missile.shootMissile);
+                missile.shootMissile = false;
+            }
+            else
+            {
+                var bullet = instance.GetComponent<Bullet>();
+                bullet.Shooter = "Player";
+            }
+
+            instance.transform.Rotate(0, 0, 45 * i);
         }
 
         Destroy(gameObject);

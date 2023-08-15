@@ -58,7 +58,9 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             // Shoot a missile
-            var missile = Instantiate(missilePrefab, firePoint.position, firePoint.rotation);
+            var instance = Instantiate(missilePrefab, firePoint.position, firePoint.rotation);
+            var missile = instance.GetComponent<Missile>();
+            missile.shootMissile = true;
         }
 
     }

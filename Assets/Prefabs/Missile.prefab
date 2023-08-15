@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 3967262770632650855}
   m_Layer: 0
   m_Name: Missile
-  m_TagString: Untagged
+  m_TagString: Missile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -220,6 +220,8 @@ MonoBehaviour:
   explosionSpot: {x: 0, y: 0, z: 0}
   smoothTime: 0.5
   bulletPrefab: {fileID: 6172803803630750190, guid: 3c736dceabdbe034a9864955f77b9312, type: 3}
+  missilePrefab: {fileID: 8724328856364715753}
+  shootMissile: 0
 --- !u!111 &3967262770632650855
 Animation:
   m_ObjectHideFlags: 0
