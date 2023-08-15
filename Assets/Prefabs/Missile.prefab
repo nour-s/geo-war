@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8477968814863335032}
   - component: {fileID: 1367788932674842770}
   m_Layer: 0
-  m_Name: Hexagon Flat-Top (2)
+  m_Name: Black-Hexagon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6357931521117649411}
   - component: {fileID: 1062766589584397968}
   m_Layer: 0
-  m_Name: Hexagon Flat-Top
+  m_Name: White-Hexagon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,6 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 516483238761886434}
   - component: {fileID: 6126768907906736698}
+  - component: {fileID: 3967262770632650855}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Untagged
@@ -219,6 +220,22 @@ MonoBehaviour:
   explosionSpot: {x: 0, y: 0, z: 0}
   smoothTime: 0.5
   bulletPrefab: {fileID: 6172803803630750190, guid: 3c736dceabdbe034a9864955f77b9312, type: 3}
+--- !u!111 &3967262770632650855
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8724328856364715753}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 1fe3e3da599f75447a58211f6b68a13f, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 1fe3e3da599f75447a58211f6b68a13f, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &9084705846597255140
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,7 +247,7 @@ GameObject:
   - component: {fileID: 8241183202428462469}
   - component: {fileID: 6812673099048720886}
   m_Layer: 0
-  m_Name: Hexagon Flat-Top (1)
+  m_Name: Red-Hexagon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
