@@ -583,6 +583,10 @@ PrefabInstance:
       propertyPath: playerNeverDies
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 58482452319076256, guid: b77aba9913c44144da001b38861bc5d7, type: 3}
+      propertyPath: missleDropPrefab
+      value: 
+      objectReference: {fileID: 5651044797222441901, guid: 6af821f2df233c64b927ef9a79bbda5f, type: 3}
     - target: {fileID: 1687204901502529209, guid: b77aba9913c44144da001b38861bc5d7, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -730,6 +734,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3204115054623857678, guid: 2231468f86e535d4b8cc2d6b0413772d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5760064216971537976, guid: 2231468f86e535d4b8cc2d6b0413772d, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

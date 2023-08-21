@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     public bool playerNeverDies;
 
+    public GameObject missleDropPrefab;
+
     //Awake is always called before any Start functions
     void Awake()
     {
@@ -157,6 +159,17 @@ public class GameManager : MonoBehaviour
         Destroy(enemyObj);
         enemiesKilled++;
         scoreText.text = $"Killed: {enemiesKilled}";
+
+        if (enemiesKilled % 5 == 0)
+        {
+            // Spawn a missle drop
+            var missleDrop = Instantiate(missleDropPrefab, enemyObj.transform.position, Quaternion.identity).GetComponent<MissleDrop>();
+        }
     }
 
+    internal void PlayerPickedMissle(MissleDrop missleDrop)
+    {
+        player.GetComponent<PlayerController>().AddMissle();
+        Destroy(missleDrop.gameObject);
+    }
 }

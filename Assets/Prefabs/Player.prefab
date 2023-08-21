@@ -757,9 +757,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3361353667327259639}
+  - component: {fileID: 885426097701833948}
   - component: {fileID: 833593926268476396}
   - component: {fileID: 7400756829271900941}
-  - component: {fileID: 885426097701833948}
   - component: {fileID: 7475529662825114699}
   - component: {fileID: 2385948429197791915}
   m_Layer: 0
@@ -786,42 +786,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &833593926268476396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8298993860533496411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f95add63e638bc4f9070c9f0756cb29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 6172803803630750190, guid: 3c736dceabdbe034a9864955f77b9312, type: 3}
-  firePoint: {fileID: 2251553071324967380}
-  fireRate: 0.1
-  enemyPrefab: {fileID: 3209677123977679684, guid: cd011732194589f4b9359e428a95997c, type: 3}
-  missilePrefab: {fileID: 8724328856364715753, guid: 2f310d11add7af045b4e42ad6f2bfd0e, type: 3}
-  character: {fileID: 7013606885501295201}
---- !u!114 &7400756829271900941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8298993860533496411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78e2e48f04279014f9d1ec95d783338a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 500
-  currentHealth: 500
-  damage: 20
-  hitImpactSprite: {fileID: 203438068716790525}
-  healthBarSlider: {fileID: 5246384412894935435}
-  deathPrefab: {fileID: 0}
 --- !u!58 &885426097701833948
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -854,9 +818,46 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.0009893775}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2576
+--- !u!114 &833593926268476396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8298993860533496411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f95add63e638bc4f9070c9f0756cb29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 6172803803630750190, guid: 3c736dceabdbe034a9864955f77b9312, type: 3}
+  firePoint: {fileID: 2251553071324967380}
+  fireRate: 0.1
+  enemyPrefab: {fileID: 3209677123977679684, guid: cd011732194589f4b9359e428a95997c, type: 3}
+  missilePrefab: {fileID: 8724328856364715753, guid: 2f310d11add7af045b4e42ad6f2bfd0e, type: 3}
+  character: {fileID: 7013606885501295201}
+  canShootMissile: 0
+--- !u!114 &7400756829271900941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8298993860533496411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e2e48f04279014f9d1ec95d783338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 500
+  currentHealth: 500
+  damage: 20
+  hitImpactSprite: {fileID: 203438068716790525}
+  healthBarSlider: {fileID: 5246384412894935435}
+  deathPrefab: {fileID: 0}
 --- !u!114 &7475529662825114699
 MonoBehaviour:
   m_ObjectHideFlags: 0

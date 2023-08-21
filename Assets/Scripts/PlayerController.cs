@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -20,6 +22,8 @@ public class PlayerController : MonoBehaviour
     public GameObject character;
 
     private AudioSource audioSource;
+
+    public bool canShootMissile = false;
 
     void Start()
     {
@@ -55,8 +59,10 @@ public class PlayerController : MonoBehaviour
             isFiring = false;
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && canShootMissile)
         {
+            canShootMissile = false;
+
             // Shoot a missile
             var instance = Instantiate(missilePrefab, firePoint.position, firePoint.rotation);
             var missile = instance.GetComponent<Missile>();
@@ -75,5 +81,10 @@ public class PlayerController : MonoBehaviour
             audioSource.Play();
             yield return new WaitForSeconds(fireRate);
         }
+    }
+
+    internal void AddMissle()
+    {
+        canShootMissile = true;
     }
 }
